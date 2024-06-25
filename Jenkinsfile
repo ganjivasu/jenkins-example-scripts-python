@@ -13,11 +13,11 @@ pipeline {
     }
     stage("copy to server") {
       steps {
-        script {
+        
         sshagent(credentials: ['ubuntu']) {
         //sh 'ssh-keyscan -H 34.209.11.56 >> ~/.ssh/known_hosts'
-        sh 'scp $workspace/hello.py ubuntu@34.209.11.56:~'
-  }
+        sh 'ssh -o StrictHostKeyChecking=no scp $workspace/hello.py ubuntu@34.209.11.56:~'
+  
         }
       }
     }
