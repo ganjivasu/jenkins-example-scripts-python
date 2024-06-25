@@ -11,5 +11,8 @@ pipeline {
         sh 'python3 hello.py'
       }
     }
+    stage("copy to server") {
+      steps {
+        scp $workspace/hello.py ubuntu@34.209.11.56
   }
 }
