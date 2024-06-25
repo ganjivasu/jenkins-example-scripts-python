@@ -15,11 +15,6 @@ pipeline {
       steps {
         script {
           sshagent(credentials: ['ubuntu']) {
-            
-          sh 'ssh-keyscan -H 34.209.11.56 > temp_key_file'
-        sh 'cat temp_key_file | ssh-keyscan -T >> ~/.ssh/known_hosts'
-        rm 'temp_key_file'
-        
         //sh 'ssh-keyscan -H 34.209.11.56 >> ~/.ssh/known_hosts'
         sh 'ssh -o StrictHostKeyChecking=no scp hello.py ubuntu@34.209.11.56:~'
         }
