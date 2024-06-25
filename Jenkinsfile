@@ -13,6 +13,6 @@ pipeline {
     }
     stage("copy to server") {
       steps {
-        scp $workspace/hello.py ubuntu@34.209.11.56
+        sh 'scp $workspace/hello.py ubuntu@34.209.11.56:~'
   }
 }
